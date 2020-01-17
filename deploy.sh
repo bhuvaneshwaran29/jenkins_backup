@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /var/lib/jenkins
+sudo cd /var/lib/jenkins
 
 ls -a | grep -w .git
 
@@ -8,13 +8,13 @@ if [ $? -ne 0 ];then
         git init
 fi
 
-touch .gitignore
+sudo touch .gitignore
 
 echo workspace >> .gitignore
 
 git add *
 git commit -m "jenkins_backup on `date`"
-git push https://github.com/abhi6666/jenkins_backup.git master
+git push https://github.com/bhuvaneshwaran29/jenkins_backup.git master
 
 if [ $? -eq 0 ];then
         body=`echo -e "Hi,\n Jenkins Backup "`
